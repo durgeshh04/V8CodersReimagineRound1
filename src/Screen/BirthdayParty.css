@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Jost", sans-serif;
+}
+
+.birthday-party-container {
+  display: flex;
+  height: 100vh;
+  background: linear-gradient(to right, #ffedbc, #ed4264);
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.order-details {
+  width: 25%;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.birthday-party-content {
+  width: 75%;
+  color: #fff;
+  padding-left: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.birthday-party-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  animation: fadeInDown 1s ease-out;
+}
+
+.birthday-party-content p {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease-out;
+}
+
+.birthday-options {
+  display: flex;
+  gap: 2rem;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.birthday-option {
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+  flex: 1;
+}
+
+.birthday-option:hover {
+  transform: translateY(-10px);
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.birthday-option h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.birthday-option p {
+  font-size: 1.4rem;
+}
+
+/* Keyframes for animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

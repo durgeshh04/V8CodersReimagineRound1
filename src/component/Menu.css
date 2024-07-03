@@ -1,0 +1,326 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  overflow: hidden; /* Prevent scrollbar from appearing during animation */
+}
+
+.menu {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.bar {
+  background-color: rgba(240, 232, 232, 0.078);
+  width: 300px; /* Initial width to only show the images */
+  height: 100%; /* Adjusted height */
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  transition: width 0.3s ease-in-out; /* Smooth transition for width */
+  overflow: hidden; /* Hide overflowing text */
+  padding-left: 50px;
+  margin-left: 40px;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateY(0);
+  }
+}
+
+.burger {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center items horizontally */
+  margin-bottom: 20px; /* Increased margin for better spacing */
+  width: 100%; /* Make sure the content fits within the bar */
+  opacity: 0; /* Start invisible */
+  transform: translateY(-50px); /* Start above the position */
+  transition: transform 0.8s ease, opacity 0.8s ease; /* Smooth transition for appearance */
+  cursor: pointer; /* Change cursor to pointer */
+  /* margin-left: 60px; */
+}
+
+.burger img {
+  width: 100px;
+  height: 100px;
+  margin-right: 1px; /* Added margin for spacing between image and text */
+}
+
+.burger span {
+  color: black;
+  font-size: 16px;
+  font-weight: 800;
+  visibility: hidden; /* Hide the text initially */
+  opacity: 0;
+  transition: visibility 0s, opacity 0.8s ease-in-out; /* Smooth transition for visibility */
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.bar:hover .burger span {
+  visibility: visible; /* Show the text on hover */
+  opacity: 1;
+}
+
+.bar:hover {
+  width: 300px; /* Expanded width to show the text */
+}
+
+.burger-details {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  height: 100%;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 0.8s ease, transform 0.8s ease; /* Smooth transition for appearance */
+}
+
+.burger-details.animated {
+  opacity: 1; /* Show details */
+  transform: translateX(0); /* Move to the correct position */
+}
+
+.burger-details-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: border 0.8s ease-in-out; /* Smooth transition for border */
+}
+
+.burger-details-content:hover {
+  border: 2px solid yellow; /* Add border on hover */
+}
+
+.burger-details img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.burger-details h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.burger-details p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.bglogo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  perspective: 1000px; /* Add perspective for 3D effect */
+}
+
+.bglogo::before {
+  content: "";
+  position: absolute;
+  top: 200px;
+  left: 400px;
+  width: 70%;
+  height: 70%;
+  background: url("../assets/McDonalds-Logo.png") no-repeat center center;
+  background-size: cover;
+  filter: blur(10px); /* Adjust the blur value as needed */
+  z-index: -2;
+  animation: flip 10s infinite linear; /* Add flip animation */
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.burger-details.fadeInRight .burger-details-content {
+  animation: fadeInRight 0.8s ease-in-out;
+}
+
+.burger-details.fadeInTop .burger-details-content {
+  animation: fadeInTop 0.8s ease-in-out;
+}
+
+.burger-details.fadeInBottom .burger-details-content {
+  animation: fadeInBottom 0.8s ease-in-out;
+}
+
+@keyframes borderAnimation {
+  0% {
+    border: 2px solid transparent;
+  }
+  100% {
+    border: 2px solid yellow;
+  }
+}
+
+.burger-details-content:hover {
+  animation: borderAnimation 0.8s forwards; /* Apply border animation on hover */
+}
+@media (min-width: 1200px) {
+  .bar {
+    width: 2500px; /* Adjusted width for larger screens */
+    padding-left: 60px; /* Adjusted padding */
+    margin-left: 50px; /* Adjusted margin */
+  }
+
+  .burger img {
+    width: 180px; /* Adjusted width for larger screens */
+    height: 180px; /* Adjusted height for larger screens */
+  }
+
+  .burger span {
+    font-size: 18px; /* Adjusted font size for larger screens */
+  }
+
+  .burger-details img {
+    width: 220px; /* Adjusted width for larger screens */
+    height: 220px; /* Adjusted height for larger screens */
+  }
+}
+
+@media (max-width: 1024px) {
+  .bar {
+    width: 300px; /* Adjusted width for tablets */
+    padding-left: 30px; /* Adjusted padding */
+    margin-left: 20px; /* Adjusted margin */
+  }
+
+  .burger img {
+    width: 120px; /* Adjusted width for tablets */
+    height: 120px; /* Adjusted height for tablets */
+  }
+
+  .burger span {
+    font-size: 14px; /* Adjusted font size for tablets */
+  }
+
+  .burger-details img {
+    width: 180px; /* Adjusted width for tablets */
+    height: 180px; /* Adjusted height for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .bar {
+    width: 100px; /* Adjusted width for mobile */
+    padding-left: 20px; /* Adjusted padding */
+    margin-left: 10px; /* Adjusted margin */
+  }
+
+  .burger img {
+    width: 80px; /* Adjusted width for mobile */
+    height: 80px; /* Adjusted height for mobile */
+  }
+
+  .burger span {
+    font-size: 12px; /* Adjusted font size for mobile */
+  }
+
+  .burger-details img {
+    width: 150px; /* Adjusted width for mobile */
+    height: 150px; /* Adjusted height for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .bar {
+    width: 100%; /* Full width for small screens */
+    padding: 10px; /* Adjusted padding */
+    flex-direction: row; /* Adjusted flex direction */
+    justify-content: space-around; /* Adjusted alignment */
+    align-items: center; /* Adjusted alignment */
+  }
+
+  .burger {
+    width: 100%; /* Full width for small screens */
+    margin-bottom: 10px; /* Reduced margin for better spacing on small screens */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    padding: 5px; /* Adjusted padding */
+  }
+
+  .burger img {
+    width: 60px; /* Adjusted width for small screens */
+    height: 60px; /* Adjusted height for small screens */
+    margin-right: 5px; /* Adjusted margin */
+  }
+
+  .burger span {
+    font-size: 10px; /* Adjusted font size for small screens */
+  }
+
+  .burger-details {
+    padding: 10px; /* Adjusted padding */
+  }
+
+  .burger-details img {
+    width: 120px; /* Adjusted width for small screens */
+    height: 120px; /* Adjusted height for small screens */
+    margin-bottom: 10px; /* Adjusted margin */
+  }
+
+  .burger-details h2 {
+    font-size: 16px; /* Adjusted font size for small screens */
+    margin-bottom: 5px; /* Adjusted margin */
+  }
+
+  .burger-details p {
+    font-size: 12px; /* Adjusted font size for small screens */
+  }
+}

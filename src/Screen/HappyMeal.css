@@ -1,0 +1,118 @@
+/* Happy Meals Section  Start*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.happy-meals {
+  height: 100vh; /* Set to full viewport height */
+  background-image: url("../assets/bg-HM.jpg"); /* Background image */
+  background-size: cover; /* Cover entire element */
+  background-position: center; /* Center the background image */
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px; /* Optional: Limit content width */
+  padding: 0 20px; /* Optional: Adjust padding */
+  text-align: center; /* Center text */
+}
+
+/* Logo animation */
+.HM-logo {
+  height: 150px;
+  width: 150px;
+  margin-top: 50px; /* Adjust margin as needed */
+  position: absolute;
+  /* left: 100%; */
+  transform: translateX(-50%);
+  animation: leftRight 8s infinite alternate ease-in-out;
+}
+
+@keyframes leftRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100vh);
+  }
+}
+
+/* logo animation end */
+
+/* Description "TOP" animation start */
+.boxtop {
+  width: 230px;
+  height: 250px;
+  position: absolute;
+  top: 80vh;
+  left: 20%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: TopDown 5s infinite alternate ease-in-out;
+}
+
+.img1 {
+  height: 180px;
+  width: 180px;
+}
+
+p {
+  color: rgb(219, 0, 7);
+  font-size: 20px;
+  margin-left: 40px;
+}
+
+span {
+  font-size: 22px;
+  color: rgb(255, 188, 13);
+}
+
+@keyframes TopDown {
+  0% {
+    top: 70%;
+  }
+  100% {
+    top: calc(30vh - 150px);
+  }
+}
+
+.box3 {
+  left: 65%;
+}
+/* Description animation start */
+
+/* Description "DOWN" animation start */
+
+.boxdown {
+  width: 230px;
+  height: 250px;
+  position: absolute;
+  left: 45%;
+  transform: translateX(-50%);
+  animation: DownTop 5s infinite alternate ease-in-out;
+}
+
+@keyframes DownTop {
+  0% {
+    top: calc(30vh - 150px);
+  }
+  100% {
+    top: 60vh;
+  }
+}
+
+.box4 {
+  left: 89%;
+}
+
+/* Description "DOWN" animation END */
+
+/* Happy Meals Section End*/

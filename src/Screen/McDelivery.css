@@ -1,0 +1,149 @@
+/* src/McDelivery.css */
+.mcdelivery-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    text-align: center;
+    background: #ffcd00; /* McDonald's yellow */
+  }
+  
+  .animated-background {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, #ffcd00 25%, #e4002b 25%, #e4002b 50%, #ffcd00 50%, #ffcd00 75%, #e4002b 75%, #e4002b);
+    background-size: 50% 50%;
+    animation: moveBackground 10s linear infinite;
+    z-index: 0;
+  }
+  
+  @keyframes moveBackground {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  .content-container {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    animation: fadeInContent 1.5s ease-out 1s forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  @keyframes fadeInContent {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .delivery-image {
+    width: 100px;
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #e4002b; /* McDonald's red */
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .product-list {
+    margin: 20px 0;
+  }
+  
+  .product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #fff;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .product-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .add-button {
+    padding: 5px 10px;
+    font-size: 1rem;
+    background-color: #e4002b;
+    color: #ffcd00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Prevents the button from growing in height */
+  }
+  
+  .add-button:hover {
+    background-color: #ff0000;
+  }
+  
+  .cart {
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    right: -350px; /* Hide cart off screen */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    transition: right 0.5s ease-out;
+  }
+  
+  .show-cart {
+    right: 20px; /* Slide cart into view */
+  }
+  
+  .cart-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .total {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  
+  .order-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #e4002b;
+    color: #ffcd00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .order-button:hover {
+    background-color: #ff0000;
+  }
+  

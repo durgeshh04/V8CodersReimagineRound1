@@ -1,0 +1,97 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.main-nav.scrolled {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin: 0 15px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: red;
+}
+
+.section {
+  padding: 100px 20px;
+  min-height: 100vh;
+}
+
+#hero {
+  background: url("/path/to/hero-image.jpg") no-repeat center center/cover;
+}
+
+#happymeal,
+#restaurant,
+#mcDelivery,
+#news {
+  background: white;
+}
+
+.hamburger-menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: block;
+  }
+
+  .menu-link {
+    display: none;
+  }
+
+  .mobile-menu-link {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: white;
+    width: 100%;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .mobile-menu-link ul {
+    flex-direction: column;
+  }
+
+  .mobile-menu-link li {
+    margin: 10px 0;
+  }
+}
